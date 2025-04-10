@@ -1,0 +1,605 @@
+{
+	"info": {
+		"_postman_id": "1800427a-e9e1-4375-8195-390a430ec088",
+		"name": "Bank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10981861"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "GetCustomers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"typeClient\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"email\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{srv-dev-customer}}:{{port-dev-customer}}/api/customers",
+							"host": [
+								"{{srv-dev-customer}}"
+							],
+							"port": "{{port-dev-customer}}",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCustomer",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"JAVIER\",\r\n  \"lastName\": \"TARAZONA JIMENEZ\",\r\n  \"typeClient\": \"P\",\r\n  \"phone\": \"9874563214\",\r\n  \"email\": \"javier@mail.com\",\r\n  \"createdBy\": \"admin@bank.com\",\r\n  \"identificationType\": \"DNI\",\r\n  \"numIdentification\": \"47779633\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{srv-dev-customer}}:{{port-dev-customer}}/api/customers",
+							"host": [
+								"{{srv-dev-customer}}"
+							],
+							"port": "{{port-dev-customer}}",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCustomer",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"VERONICA\",\r\n  \"lastName\": \"ARANGO GARCIA\",\r\n  \"typeClient\": \"P\",\r\n  \"phone\": \"4545454 edit\",\r\n  \"email\": \"change@gmail.com edit\",\r\n \"createdBy\": \"mo.garcia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-customer}}/api/customers/67eac950c28958457791a610",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-customer}}",
+							"path": [
+								"api",
+								"customers",
+								"67eac950c28958457791a610"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCustomer",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-customer}}/api/customers/67eac950c28958457791a610",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-customer}}",
+							"path": [
+								"api",
+								"customers",
+								"67eac950c28958457791a610"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCustomerById",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-customer}}/api/customers/67f00c6fd214c769e74425a7",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-customer}}",
+							"path": [
+								"api",
+								"customers",
+								"67f00c6fd214c769e74425a7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "CreateProduct",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productType\": \"SA\",\r\n  \"familyProduct\": \"ACTIVE\",\r\n  \"customer\": {\r\n    \"customerId\": \"67ec1a41fabf6d0f4ada9865\",\r\n    \"customerType\": \"P\"\r\n  },\r\n  \"activeProduct\": {\r\n    \"hasCreditCard\": true,\r\n    \"creditLimit\": 30000,\r\n    \"creditLimitEnabled\": 0,\r\n    \"creditLimitUsed\": 0\r\n  },\r\n  \"holders\": [\r\n    {\r\n      \"fullName\": \"MARIA FERNANDEZ\",\r\n      \"email\": \"mail@gmail.com\",\r\n      \"phone\": \"0909280398123\",\r\n      \"identification\": {\r\n        \"typeIdentification\": \"DNI\",\r\n        \"numberIdentification\": \"34234234\"\r\n      }\r\n    }\r\n  ],\r\n  \"authorizedSignatories\": [\r\n    {\r\n      \"fullName\": \"MARIA FERNANDEZ\",\r\n      \"email\": \"mail@gmail.com\",\r\n      \"phone\": \"0909280398123\",\r\n      \"identification\": {\r\n        \"typeIdentification\": \"DNI\",\r\n        \"numberIdentification\": \"34234234\"\r\n      }\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-product}}/api/products",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-product}}",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProducts",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-product}}/api/products",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-product}}",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProduct",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"actionToUpdate\": \"CHANGE_HOLDERS\",\r\n  \"status\": \"string\",\r\n  \"activeProduct\": {\r\n    \"hasCreditCard\": false,\r\n    \"creditLimit\": 55555,\r\n    \"creditLimitEnabled\": 33333,\r\n    \"creditLimitUsed\":  10000\r\n  },\r\n  \"passiveProduct\": {\r\n    \"isFreeCommission\": true,\r\n    \"amountOfOpen\": 100,\r\n    \"accountNumber\": \"XXXXXXX\",\r\n    \"inforToTransaction\": {\r\n      \"commission\": 10,\r\n      \"maxPerMonth\": \"20\",\r\n      \"transactionDone\": \"10\",\r\n      \"enabledToMovement\": false\r\n    }\r\n  },\r\n  \"holders\": [\r\n    {\r\n      \"fullName\": \"ANA TEST GARCIA\",\r\n      \"email\": \"monicaupdate@gmail.com\",\r\n      \"phone\": \"7777777\",\r\n      \"identification\": {\r\n        \"typeIdentification\": \"DNI\",\r\n        \"numberIdentification\": \"1216554654\"\r\n      }\r\n    },\r\n    {\r\n      \"fullName\": \"BALENCIA TEST GARCIA DOS\",\r\n      \"email\": \"monicaupdate@gmail.com2\",\r\n      \"phone\": \"77777772\",\r\n      \"identification\": {\r\n        \"typeIdentification\": \"DNI\",\r\n        \"numberIdentification\": \"1216554654222\"\r\n      }\r\n    }\r\n  ],\r\n  \"authorizedSignatories\": [\r\n    {\r\n      \"fullName\": \"CARLOS MENDOZA\",\r\n      \"email\": \"mail@update.com\",\r\n      \"phone\": \"77777\",\r\n      \"identification\": {\r\n        \"typeIdentification\": \"RUC\",\r\n        \"numberIdentification\": \"1232132321\"\r\n      }\r\n    },\r\n    {\r\n      \"fullName\": \"DANIEL MENDOZA\",\r\n      \"email\": \"mail@update.com\",\r\n      \"phone\": \"77777\",\r\n      \"identification\": {\r\n        \"typeIdentification\": \"RUC\",\r\n        \"numberIdentification\": \"1232132321\"\r\n      }\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-product}}/api/products/67ee35d8056fb46ad98338e9",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-product}}",
+							"path": [
+								"api",
+								"products",
+								"67ee35d8056fb46ad98338e9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-product}}/api/products/67ec139627b6275234862470",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-product}}",
+							"path": [
+								"api",
+								"products",
+								"67ec139627b6275234862470"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBalance",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-product}}/api/products/67f1e95e99f03227cbd85b5e/balance",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-product}}",
+							"path": [
+								"api",
+								"products",
+								"67f1e95e99f03227cbd85b5e",
+								"balance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductByAccountNumber",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-product}}/api/products/account/CA01-8651597276",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-product}}",
+							"path": [
+								"api",
+								"products",
+								"account",
+								"CA01-8651597276"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "config-server-bc",
+			"item": [
+				{
+					"name": "service-customer-local",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/service-customer/local",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"service-customer",
+								"local"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "service-product-local",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/service-product/local",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"service-product",
+								"local"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "CreateTransaction",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": \"ID-002\",\r\n  \"productType\": \"SA\",\r\n  \"amount\": 1000,\r\n  \"movementType\": \"DEPOSIT\",\r\n  \"result\":\"SUCCESS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-transaction}}/api/transactions",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-transaction}}",
+							"path": [
+								"api",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTransactionByCustomerId",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-transaction}}/api/transactions/customers/67ec1a41fabf6d0f4ada9865",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-transaction}}",
+							"path": [
+								"api",
+								"transactions",
+								"customers",
+								"67ec1a41fabf6d0f4ada9865"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Business Logic",
+			"item": [
+				{
+					"name": "CreateProduct",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerId\": \"67ec1a82fabf6d0f4ada9867\",\r\n  \"productType\": \"CA\",\r\n    \"openAmount\": 30.00,\r\n  \"familyProduct\": \"PASSIVE\",\r\n  \"userBank\": \"admin-2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-business}}/api/business/product",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-business}}",
+							"path": [
+								"api",
+								"business",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdditionalPerson",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerId\": \"67ec1a82fabf6d0f4ada9867\",\r\n  \"typeAdditional\": \"SIGN\",\r\n  \"productId\": \"67f1e94499f03227cbd85b5d\",\r\n  \"fullName\": \"VERONICA ARANGO YAMASHIRO\",\r\n  \"identificationNum\": \"22222\",\r\n  \"identificationType\": \"DNI\",\r\n  \"email\": \"mail@gmail.commmm\",\r\n  \"phone\": \"2222222\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-business}}/api/business/persons",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-business}}",
+							"path": [
+								"api",
+								"business",
+								"persons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DoMovement",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerId\": \"67ec1a41fabf6d0f4ada9865\",\r\n  \"productId\": \"67f43db94b914424665e6625\",\r\n  \"movementType\": \"WITHDRAWAL\", //DEPOSIT , WITHDRAWAL\r\n   \"accountNumberToTransfer\" :\"\", //CA01-8651597276\r\n  \"amount\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-business}}/api/business/movement",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-business}}",
+							"path": [
+								"api",
+								"business",
+								"movement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetReportBalance (saldos de productos)",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"typeReport\": \"BALANCE\",\r\n  \"customerId\": \"67ec1a41fabf6d0f4ada9865\",\r\n  \"productId\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-business}}/api/business/report",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-business}}",
+							"path": [
+								"api",
+								"business",
+								"report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTransactionsByProductId",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"typeReport\": \"MOVEMENT\",\r\n  \"customerId\": null,\r\n  \"productId\": \"67f43db94b914424665e6625\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{srv-dev}}:{{port-dev-business}}/api/business/report",
+							"host": [
+								"{{srv-dev}}"
+							],
+							"port": "{{port-dev-business}}",
+							"path": [
+								"api",
+								"business",
+								"report"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
