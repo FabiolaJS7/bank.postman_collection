@@ -53,7 +53,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"JAVIER\",\r\n  \"lastName\": \"TARAZONA JIMENEZ\",\r\n  \"typeClient\": \"P\",\r\n  \"phone\": \"9874563214\",\r\n  \"email\": \"javier@mail.com\",\r\n  \"createdBy\": \"admin@bank.com\",\r\n  \"identificationType\": \"DNI\",\r\n  \"numIdentification\": \"47779633\"\r\n  }",
+							"raw": "//Creación de cliente P = Personal\r\n// {\r\n//   \"name\": \"GEORGE\",\r\n//   \"lastName\": \"TARAZONA JIMENEZ\",\r\n//   \"typeClient\": \"P\",\r\n//   \"phone\": \"9874563214\",\r\n//   \"email\": \"javier@mail.com\",\r\n//   \"createdBy\": \"admin@bank.com\",\r\n//   \"identificationType\": \"DNI\",\r\n//   \"numIdentification\": \"47779633\"\r\n//   }\r\n\r\n\r\n//Creación de cliente B = Empresarial\r\n// {\r\n//   \"name\": \"GEORGE\",\r\n//   \"lastName\": \"TARAZONA JIMENEZ\",\r\n//   \"typeClient\": \"B\",\r\n//   \"phone\": \"9874563214\",\r\n//   \"email\": \"javier@mail.com\",\r\n//   \"createdBy\": \"admin@bank.com\",\r\n//   \"identificationType\": \"DNI\",\r\n//   \"numIdentification\": \"47779633\"\r\n//   }\r\n\r\n//Creación de cliente V = Persona VIP\r\n// {\r\n//   \"name\": \"GEORGE\",\r\n//   \"lastName\": \"TARAZONA JIMENEZ\",\r\n//   \"typeClient\": \"V\",\r\n//   \"phone\": \"9874563214\",\r\n//   \"email\": \"javier@mail.com\",\r\n//   \"createdBy\": \"admin@bank.com\",\r\n//   \"identificationType\": \"DNI\",\r\n//   \"numIdentification\": \"47779633\"\r\n//   }\r\n\r\n//Creación de cliente M = Empresarial PYME\r\n// {\r\n//   \"name\": \"GEORGE\",\r\n//   \"lastName\": \"TARAZONA JIMENEZ\",\r\n//   \"typeClient\": \"M\",\r\n//   \"phone\": \"9874563214\",\r\n//   \"email\": \"javier@mail.com\",\r\n//   \"createdBy\": \"admin@bank.com\",\r\n//   \"identificationType\": \"DNI\",\r\n//   \"numIdentification\": \"47779633\"\r\n//   }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -61,9 +61,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{srv-dev-customer}}:{{port-dev-customer}}/api/customers",
+							"raw": "{{srv-dev}}:{{port-dev-customer}}/api/customers",
 							"host": [
-								"{{srv-dev-customer}}"
+								"{{srv-dev}}"
 							],
 							"port": "{{port-dev-customer}}",
 							"path": [
